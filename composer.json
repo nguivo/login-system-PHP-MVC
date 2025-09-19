@@ -1,0 +1,17 @@
+{
+    "name": "nguivo/thrustify-now",
+    "autoload": {
+        "psr-4": {
+            "Nguivo\\ThrustifyNow\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ngu",
+            "email": "nguivo9@gmail.com"
+        }
+    ],
+    "require": {
+        "twbs/bootstrap": "*"
+    }
+}
