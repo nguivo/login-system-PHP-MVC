@@ -2,7 +2,9 @@
     "name": "nguivo/thrustify-now",
     "autoload": {
         "psr-4": {
-            "Nguivo\\ThrustifyNow\\": "src/"
+            "framework\\": "./",
+            "framework\\app\\": "./app",
+            "": ""
         }
     },
     "authors": [
@@ -12,6 +14,8 @@
         }
     ],
     "require": {
+        "vlucas/phpdotenv": "*",
+        "ext-pdo": "*",
         "twbs/bootstrap": "*"
     }
 }
