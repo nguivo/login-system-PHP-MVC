@@ -4,10 +4,11 @@ use app\controllers\AuthController;
 use app\controllers\SiteController;
 use app\models\User;
 use framework\core\Application;
+use Dotenv\Dotenv;
 
-require_once dirname(__DIR__)."/vendor/autoload.php";
 $path = dirname(__DIR__);
-$dotenv = Dotenv\Dotenv::createImmutable($path);
+require_once $path."/vendor/autoload.php";
+$dotenv = Dotenv::createImmutable($path);
 $dotenv->load();
 
 $config = [

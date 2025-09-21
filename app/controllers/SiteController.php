@@ -9,6 +9,14 @@ use framework\core\Response;
 
 class SiteController extends Controller
 {
+    public function home(): string
+    {
+        $params = [
+            'name' => 'Home'
+        ];
+        return $this->render('/home', $params);
+    }
+
 
     public function privacy()
     {
