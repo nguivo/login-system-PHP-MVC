@@ -1,7 +1,7 @@
 <?php
 
-use app\controllers\AuthController;
-use app\controllers\SiteController;
+use framework\app\controllers\AuthController;
+use framework\app\controllers\SiteController;
 use app\models\User;
 use framework\core\Application;
 use Dotenv\Dotenv;

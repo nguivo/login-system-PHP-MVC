@@ -1,0 +1,243 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #3F51B5;
+    --light-primary-color: #C5CAE9;
+    --dark-primary-color: #303F9F;
+
+    --bright-blue: #38bdf8;
+    --bright-blue-hover: #0aa9f3;
+
+    --background-color: #e9e9e9;
+
+    --white-color: #FFFFFF;
+    --accent-color: #607D8B;
+    --primary-text: #212121;
+    --secondary-text: #757575;
+    --divider-color: #BDBDBD;
+
+    --success-color: rgba(0, 128, 0, 0.87);
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--light-primary-color);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+ul {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+/* ======= HEADER =======*/
+.top-bar {
+    font-size: 0.8rem;
+    font-weight: 600;
+    width: 100%;
+    padding: 0.5rem 5%;
+    color: var(--primary-text);
+    background-color: var(--background-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-bar ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.top-bar a:hover {
+    color: var(--bright-blue);
+}
+
+.middle-bar {
+    font-size: 1rem;
+    padding: 0.5rem 5%;
+    background-color: var(--white-color);
+    transition: ease-out 0.5s;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.middle-bar form {
+    width: 40%;
+    margin-right: 15rem;
+}
+
+.middle-bar input {
+    font-size: 0.8rem;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    outline: none;
+    border-radius: 30px;
+    border: 1px solid var(--divider-color);
+    color: var(--primary-text);
+    background-color: var(--background-color);
+}
+
+.middle-bar ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.middle-bar a {
+    color: var(--primary-text) !important;
+}
+
+.middle-bar a:hover {
+    color: var(--bright-blue);
+}
+
+
+
+
+/*=========== NAVBAR =========*/
+nav {
+    color: var(--white-color);
+    width: 100%;
+    padding: 1rem 5%;
+    border-bottom: 1px solid var(--divider-color);
+    backdrop-filter: blur(15px);
+    /*margin-bottom: 2rem;*/
+    background-color: var(--primary-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul {
+    transition: 0.5s;
+}
+
+.text-logo {
+    display: none;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links li a {
+    position: relative;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #e2e8f0;
+}
+
+.myBtn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    background-color: var(--bright-blue);
+    color: #0f172a;
+    box-shadow: 0 0 15px var(--bright-blue);
+    cursor: pointer;
+}
+
+.myBtn:hover {
+    background: var(--bright-blue-hover);
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-icon i {
+    font-size: 2rem;
+    color: var(--white-color);
+}
+
+@media (max-width: 600px) {
+    nav ul {
+        position: absolute;
+        top: 4rem;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0 !important;
+        text-align: center;
+        background: var(--primary-color);
+        overflow: hidden;
+    }
+    nav ul li {
+        padding: 0.8rem 0;
+        border-bottom: 1px solid var(--divider-color);
+    }
+    .menu-icon {
+        display: block;
+    }
+    .text-logo {
+        display: block;
+    }
+     .myBtn {
+         display: none;
+     }
+    .middle-bar {
+        display: none;
+    }
+}
+
+
+
+
+/*=========== FOOTER =========*/
+.footer {
+    color: var(--light-primary-color);
+    margin-bottom: 0;
+    background-color: var(--dark-primary-color);
+}
+
+.footer-top {
+    text-align: center;
+    padding: 7vw;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 1vw;
+    background-color: var(--primary-color);
+}
+
+.footer-bottom p {
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.footer-bottom a {
+    color: var(--bright-blue);
+    transition: 0.3s;
+}
+
+.footer-bottom a:hover {
+    color: var(--bright-blue-hover);
+}

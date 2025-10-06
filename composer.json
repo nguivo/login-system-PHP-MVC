@@ -3,8 +3,7 @@
     "autoload": {
         "psr-4": {
             "framework\\": "./",
-            "framework\\app\\": "./app",
-            "": ""
+            "framework\\app\\": "./app"
         }
     },
     "authors": [

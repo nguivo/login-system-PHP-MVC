@@ -5,10 +5,12 @@ use framework\core\forms\Form;
 ?>
 
 <section>
-    <div class="container">
-        <h2>Home page</h2>
+    <div class="">
+        <?php $form = Form::begin(); ?>
 
-        <div class="alert alert-success">guys, we are in!</div>
+
+
+        <?php Form::end(); ?>
     </div>
 </section>
 

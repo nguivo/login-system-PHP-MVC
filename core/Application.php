@@ -2,7 +2,7 @@
 
 namespace framework\core;
 
-use app\controllers\SiteController;
+use framework\app\controllers\SiteController;
 use app\models\LoginForm;
 use framework\core\db\Database;
 use framework\core\db\DbModel;

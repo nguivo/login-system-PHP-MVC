@@ -1,6 +1,6 @@
 <?php
 
-namespace app\controllers;
+namespace framework\app\controllers;
 
 use framework\core\Application;
 use framework\core\Controller;
