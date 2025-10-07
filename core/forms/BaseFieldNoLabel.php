@@ -4,7 +4,7 @@ namespace framework\core\forms;
 
 use framework\core\Model;
 
-abstract class BaseField
+abstract class BaseFieldNoLabel
 {
     public Model $model;
     public string $attribute;
@@ -21,12 +21,10 @@ abstract class BaseField
     {
         return sprintf('
             <div class="form-group">
-                <label>%s</label><br>
                 %s
                 <div class="invalid-feedback" style="color: red">%s</div>
             </div>
-        ', $this->model->getLabel($this->attribute),
-            $this->renderInput(),
+        ',$this->renderInput(),
             $this->model->getFirstError($this->attribute)??''
         );
     }

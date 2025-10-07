@@ -20,10 +20,9 @@ class Form
     }
 
 
-    public function fieldNoLabel(Model $model, string $attribute, $placeholder = ''): string
+    public function fieldNoLabel(Model $model, string $attribute, $placeholder = ''): InputFieldNoLabel
     {
-        $element = new InputField($model, $attribute, $placeholder);
-        return $element->noLabel();
+        return new InputFieldNoLabel($model, $attribute, $placeholder);
     }
 
 

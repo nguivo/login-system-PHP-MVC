@@ -14,15 +14,13 @@ class User extends UserModel
     public const STATUS_SUSPENDED = 'suspended';
     public const STATUS_DELETED = 'deleted';
 
-    public int $adm_id;
+    public int $id;
+    public string $first_name = '';
+    public string $last_name = '';
     public string $username = '';
-    public string $adm_pwd = '';
-
-    /*public string $date_of_birth = '';
+    public string $dob = '';
     public string $email = '';
-    public string $uname = '';
-    public string $password = '';*/
-    //public int $status = self::STATUS_INACTIVE;
+    public string $pwd = '';
 
 
     public function rules(): array
@@ -45,7 +43,7 @@ class User extends UserModel
 
     public function tableName(): string
     {
-        return "telc_admin";
+        return "users";
     }
 
 
