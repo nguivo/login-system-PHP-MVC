@@ -2,7 +2,7 @@
 
 use framework\app\controllers\AuthController;
 use framework\app\controllers\SiteController;
-use app\models\User;
+use framework\app\models\User;
 use framework\core\Application;
 use Dotenv\Dotenv;
 

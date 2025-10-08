@@ -2,8 +2,8 @@
 
 namespace framework\app\controllers;
 
-use app\models\User;
-use app\models\LoginForm;
+use framework\app\models\User;
+use framework\app\models\LoginForm;
 use framework\core\Application;
 use framework\core\Controller;
 use framework\core\middlewares\AuthMiddleware;

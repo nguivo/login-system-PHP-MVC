@@ -3,7 +3,7 @@
 namespace framework\core;
 
 use framework\app\controllers\SiteController;
-use app\models\LoginForm;
+use framework\app\models\LoginForm;
 use framework\core\db\Database;
 use framework\core\db\DbModel;
 

@@ -1,7 +1,7 @@
 <?php
 
-use app\models\LoginForm;
-use app\models\User;
+use framework\app\models\LoginForm;
+use framework\app\models\User;
     use framework\core\Application;
     use framework\core\forms\Form;
     use framework\core\View;

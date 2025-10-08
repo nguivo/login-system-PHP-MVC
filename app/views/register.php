@@ -1,6 +1,6 @@
 <?php
 
-use app\models\User;
+use framework\app\models\User;
 use framework\core\Application;
 use framework\core\forms\Form;
 use framework\core\View;
@@ -47,21 +47,28 @@ use framework\core\View;
                     <?php echo $form->fieldNoLabel($model, 'pwd', 'Password')->passwordField(); ?>
                 </div>
 
+                <div class="mb-3">
+                    <?php echo $form->fieldNoLabel($model, 'cpwd', 'Confirm password')->passwordField(); ?>
+                </div>
+
                 <div class="form-group mb-3">
-                    <div class="checkbox mb-3">
-                        <label>
-                            <input id="rememberMe" name="rememberMe" type="checkbox" data-original-title="" title=""> Remember me
-                        </label>
-                    </div>
-                    <div class="">
-                        <span><a href="">Forgot Password? </a></span>
-                    </div>
+                    <label class="form-check-label">
+                        <input id="rememberMe" name="rememberMe" type="checkbox" class="form-check-input"> Remember me
+                    </label>
+                </div>
+
+                <div class="mb-3">
+                    <span>By clicking on Sign Up, you have read and agreed to our <a href="">Terms and Conditions of use</a>, <a href="">Privacy label</a> and <a href="">Cookies policy</a></span>
                 </div>
 
                 <div class="mb-5">
-                    <input class="btn btn-primary  btn-lg" name="login" type="submit" value="Register">
+                    <input class="btn btn-primary" name="login" type="submit" value="Register">
                 </div>
                 <?php $form::end(); ?>
+
+                <div class="">
+                    <span><a href="">Forgot Password? </a></span>
+                </div>
             </div>
             <div class="col-md-6"></div>
         </div>

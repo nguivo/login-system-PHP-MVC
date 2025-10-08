@@ -2,7 +2,7 @@
 
 namespace framework\core\db;
 
-use app\models\User;
+use framework\app\models\User;
 use framework\core\Application;
 use framework\core\Model;
 
