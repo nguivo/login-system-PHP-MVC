@@ -44,6 +44,17 @@ ul {
     text-align: center;
 }
 
+.main-btn {
+    color: var(--white-color);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    box-shadow: 0 0 15px var(--divider-color);
+    cursor: pointer;
+}
+
 /* ======= HEADER =======*/
 .top-bar {
     font-size: 0.8rem;
@@ -119,7 +130,6 @@ nav {
     padding: 1rem 5%;
     border-bottom: 1px solid var(--divider-color);
     backdrop-filter: blur(15px);
-    /*margin-bottom: 2rem;*/
     background-color: var(--primary-color);
 
     display: flex;

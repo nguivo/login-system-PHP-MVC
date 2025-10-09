@@ -62,7 +62,7 @@ use framework\core\View;
                 </div>
 
                 <div class="mb-5">
-                    <input class="btn btn-primary" name="login" type="submit" value="Register">
+                    <input type="submit" name="signup" value="Sign Up" class="main-btn" />
                 </div>
                 <?php $form::end(); ?>
 

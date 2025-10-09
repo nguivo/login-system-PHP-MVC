@@ -81,6 +81,9 @@ class User extends UserModel
         /* Starting registration transaction */
         try {
             if($this->id = $this->save()) {
+
+
+
                 return $this->id;
             }
         }

@@ -44,41 +44,15 @@ class AuthController extends Controller
 
         if($request->isPost()) {
             $user->loadData($request->getRequestBody());
-            if($user->validate() && $adm_id = $user->register()) {
-                Application::$app->session->setFlash('success', "Successfully registered");
-                return $this->render("/complete-registration", ['model' => $user, 'adm_id' => $adm_id]);
+            if($user->validate() && $user_id = $user->register()) {
+                Application::$app->session->setFlash('success', "Successfully registered. Please check your email for activation.");
+                return $this->render("/complete-registration", ['model' => $user, 'user_id' => $user_id]);
             }
 
             return $this->render("register", ['model' => $user]);
         }
 
         return $this->render('register', ['model' => $user]);
-    }
-    
-    
-    public function resultOverview(Request $request): string
-    {
-        $this->setLayout("main2");
-        if(Application::$app->session->get('reference')) {
-            $params = [
-                'name' => 'IELTS Results'    
-            ];
-            return $this->render('/result-overview', $params);
-        }
-        return $this->render('/check-test-results');
-    }
-
-
-    public function results(): string
-    {
-        $this->setLayout("main2");
-        if(Application::$app->session->get('reference')) {
-            $params = [
-                'name' => 'Detailed Results'
-            ];
-            return $this->render('/results', $params);
-        }
-        return $this->render('/check-test-results');
     }
 
 

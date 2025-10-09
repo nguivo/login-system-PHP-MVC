@@ -1,3 +1,8 @@
+<?php
+    use framework\core\Application;
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,6 +14,22 @@
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
+
+    <section class="flash-message">
+        <?php if(Application::$app->session->getFlash('success')): ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <?php echo Application::$app->session->getFlash('success'); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endif; ?>
+
+        <?php if(Application::$app->session->getFlash('error')): ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <?php echo Application::$app->session->getFlash('error'); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endif; ?>
+    </section>
 
     <section class="header">
         <div class="top-bar">
