@@ -12,28 +12,11 @@ use framework\core\Response;
 
 class AuthController extends Controller
 {
-    public string $layout = 'main2';
+    public string $layout = 'main';
 
     public function __construct()
     {
         $this->registerMiddleware(new AuthMiddleware(['profile', 'dashboard']));
-    }
-
-
-    public function login(Request $request): string|bool
-    {
-        $this->layout = "main";
-        $loginForm = new LoginForm();
-
-        if($request->isPost()) {
-            $loginForm->loadData($request->getRequestBody());
-            if($loginForm->validate() && $loginForm->login()) {
-                Application::$app->session->setFlash('success', 'Welcome Boss');
-                Application::$app->login();
-                return true;
-            }
-        }
-        return $this->render('/login', ['model' => $loginForm]);
     }
 
 
@@ -53,6 +36,30 @@ class AuthController extends Controller
         }
 
         return $this->render('register', ['model' => $user]);
+    }
+
+
+    public function completeRegistration(): string
+    {
+        return $this->render('/complete-registration');
+    }
+
+
+    public function login(Request $request): string|bool
+    {
+        $this->layout = "main";
+        $loginForm = new LoginForm();
+
+        if($request->isPost()) {
+            $loginForm->loadData($request->getRequestBody());
+            if($loginForm->validate() && $loginForm->login()) {
+                Application::$app->session->setFlash('success', 'Welcome Boss');
+                Application::$app->login();
+                //TODO: Redirect user according to their roles
+                return $this->render('/');
+            }
+        }
+        return $this->render('/login', ['model' => $loginForm]);
     }
 
 

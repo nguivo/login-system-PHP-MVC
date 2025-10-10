@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace framework\app\models;
 
 use framework\core\Application;
 use framework\core\db\DbModel;
@@ -8,28 +8,28 @@ use framework\core\db\DbModel;
 class LoginForm extends DbModel
 {
     public string $username = '';
-    public string $adm_pwd = '';
+    public string $pwd = '';
 
     public function tableName(): string
     {
-        return 'telc_admin';
+        return 'users';
     }
 
     public function primaryKey(): string
     {
-        return "adm_id";
+        return "id";
     }
 
     public function attributes(): array
     {
-        return ['username', 'adm_pwd'];
+        return ['username', 'pwd'];
     }
 
     public function labels(): array
     {
         return [
             'username' => 'Username',
-            'adm_pwd' => 'Password'
+            'pwd' => 'Password'
         ];
     }
 
@@ -37,20 +37,24 @@ class LoginForm extends DbModel
     {
         return [
             'username' => [self::RULE_REQUIRED],
-            'adm_pwd' => [self::RULE_REQUIRED]
+            'pwd' => [self::RULE_REQUIRED]
         ];
     }
 
     public function login(): bool
     {
         //implement login logic
-        $where = [];
+        $user = Application::$app->user->findOne(['username' => $this->username]);
+        if(!$user) {
+            $user = Application::$app->user->findOne(['email' => $this->username]);
+        }
+        if(!$user) {
+            $user = Application::$app->user->findOne(['phone' => $this->username]);
 
-        $where = ['username' => $this->username];
-        $user = Application::$app->user->findOne($where);
-        //Application::dnd($user);
+        }
+
         if($user) {
-            if(password_verify($this->adm_pwd, $user->adm_pwd)) {
+            if(password_verify($this->pwd, $user->pwd)) {
                 Application::$app->user = $user;
                 return true;
             }

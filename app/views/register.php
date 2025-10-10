@@ -7,8 +7,10 @@ use framework\core\View;
 
     /**@var $this View */
     /**@var $model User */
-    $this->title = $name ?? "Join Now";
+    $this->title = $name ?? "Sign Up";
 
+    //TODO: get user's timezone using javascript
+    //TODO: add captcha
 ?>
 
 
@@ -36,7 +38,7 @@ use framework\core\View;
                 </div>
 
                 <div class="mb-3">
-                    <?php echo $form->fieldNoLabel($model, 'email', 'Email'); ?>
+                    <?php echo $form->fieldNoLabel($model, 'email', 'Email')->emailField(); ?>
                 </div>
 
                 <div class="mb-3">
@@ -51,14 +53,10 @@ use framework\core\View;
                     <?php echo $form->fieldNoLabel($model, 'cpwd', 'Confirm password')->passwordField(); ?>
                 </div>
 
-                <div class="form-group mb-3">
-                    <label class="form-check-label">
-                        <input id="rememberMe" name="rememberMe" type="checkbox" class="form-check-input"> Remember me
-                    </label>
-                </div>
+                <input type="hidden" name="timezone" value="" />
 
                 <div class="mb-3">
-                    <span>By clicking on Sign Up, you have read and agreed to our <a href="">Terms and Conditions of use</a>, <a href="">Privacy label</a> and <a href="">Cookies policy</a></span>
+                    <span>By clicking on Sign Up, you have read and agreed to our <a href="">Terms and Conditions of Use</a>, <a href="">Privacy Policy</a> and <a href="">Cookies Policy</a></span>
                 </div>
 
                 <div class="mb-5">
@@ -67,7 +65,7 @@ use framework\core\View;
                 <?php $form::end(); ?>
 
                 <div class="">
-                    <span><a href="">Forgot Password? </a></span>
+                    <span>Already have an account? <a href="/login">Login instead </a></span>
                 </div>
             </div>
             <div class="col-md-6"></div>
@@ -75,3 +73,6 @@ use framework\core\View;
     </div>
 </section>
 
+<script>
+    document.getElementById('timezone').value = Intl.DateTimeFormat().resolvedOptions().timeZone;
+</script>

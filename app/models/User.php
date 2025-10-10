@@ -24,7 +24,9 @@ class User extends UserModel
 
     public string $cpwd = '';
 
-    public string $rem = '';
+    public string $timezone = '';
+    public string $created_at = '';
+    public string $updated_at = '';
 
     public function rules(): array
     {
@@ -63,7 +65,7 @@ class User extends UserModel
 
     public function attributes(): array
     {
-        return ['username', 'email', 'pwd'];
+        return ['username', 'email', 'pwd', 'timezone', 'created_at', 'updated_at'];
     }
 
 
@@ -73,16 +75,20 @@ class User extends UserModel
     }
 
 
-    public function register(): int|false
+    public function register(): int|bool
     {
         $temp_pass = $this->pwd;
         $this->pwd = password_hash($this->pwd, PASSWORD_DEFAULT);
+        $this->created_at = date('Y-m-d H:i:s');
+        $this->updated_at = date('Y-m-d H:i:s');
 
         /* Starting registration transaction */
         try {
             if($this->id = $this->save()) {
 
-
+                //TODO: Send confirmation email
+                //TODO: Update user's profile
+                //TODO: Log registration activity
 
                 return $this->id;
             }
