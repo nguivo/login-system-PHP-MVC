@@ -41,7 +41,10 @@ class AuthController extends Controller
 
     public function completeRegistration(): string
     {
-        return $this->render('/complete-registration');
+        $params = [
+            'name' => 'Complete Registration'
+        ];
+        return $this->render('/complete-registration', $params);
     }
 
 
@@ -53,10 +56,9 @@ class AuthController extends Controller
         if($request->isPost()) {
             $loginForm->loadData($request->getRequestBody());
             if($loginForm->validate() && $loginForm->login()) {
-                Application::$app->session->setFlash('success', 'Welcome Boss');
                 Application::$app->login();
                 //TODO: Redirect user according to their roles
-                return $this->render('/');
+                return $this->render('/home');
             }
         }
         return $this->render('/login', ['model' => $loginForm]);
@@ -78,7 +80,7 @@ class AuthController extends Controller
     }
 
 
-    public function logout(Request $request, Response $response)
+    public function logout(Request $request, Response $response): void
     {
         Application::$app->logout();
         Application::$app->response->redirect('login');

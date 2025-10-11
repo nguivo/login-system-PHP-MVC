@@ -9,15 +9,18 @@
 <div class="page-header">
     <div class="row">
         <div class="col-xs-12 col-md-8">
-            <h1>Error <?php
-                echo $exception->getCode(); ?></h1>
+            <h1>
+                Error <?php echo $exception->getCode(); ?>
+            </h1>
         </div>
     </div>
 </div>
 
 <section role="main" class="col-xs-12 col-md-8">
     <p>
-        <?php echo $exception->getMessage(); ?>
+        <?php echo $exception->getMessage(); ?><br><br>
+
+        <?php var_dump($exception); ?>
     </p>
 
 </section>

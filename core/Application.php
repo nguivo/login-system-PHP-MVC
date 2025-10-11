@@ -2,16 +2,8 @@
 
 namespace framework\core;
 
-use framework\app\controllers\SiteController;
-use framework\app\models\LoginForm;
 use framework\core\db\Database;
-use framework\core\db\DbModel;
 
-/**
- *  Class Application
- *
- * @package app\core
- * */
 class Application
 {
     public static string $ROOT_DIR;

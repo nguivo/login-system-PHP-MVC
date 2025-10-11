@@ -15,6 +15,8 @@
     "require": {
         "vlucas/phpdotenv": "*",
         "ext-pdo": "*",
-        "twbs/bootstrap": "*"
+        "phpmailer/phpmailer": "*",
+        "twbs/bootstrap": "^5.3",
+        "sendgrid/sendgrid": "^8.1"
     }
 }

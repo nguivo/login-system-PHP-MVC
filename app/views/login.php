@@ -16,12 +16,13 @@ $this->title = $name ?? "Login";
 
 <section>
     <div class="container">
-        <div class="page-title">
-            <h1>Register for An Account</h1>
-        </div>
 
         <div class="row">
             <div class="col-md-6">
+                <div class="page-title">
+                    <h1>Login</h1>
+                </div>
+
                 <?php $form = Form::begin('', 'post'); ?>
 
                 <div class="mb-3">

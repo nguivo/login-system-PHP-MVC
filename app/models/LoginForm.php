@@ -50,7 +50,6 @@ class LoginForm extends DbModel
         }
         if(!$user) {
             $user = Application::$app->user->findOne(['phone' => $this->username]);
-
         }
 
         if($user) {
