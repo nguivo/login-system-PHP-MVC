@@ -4,9 +4,9 @@ namespace framework\core;
 
 class View
 {
-    public string $title = 'Logistic';
+    public string $title = 'Login System';
 
-    public function renderView(string $view, array $params = [])
+    public function renderView(string $view, array $params = []): string
     {
         $viewContent = $this->getViewContents($view, $params);
         $layoutContents = $this->getLayoutContents();
@@ -33,9 +33,8 @@ class View
         }
 
         ob_start();
-
-        if(file_exists(Application::$ROOT_DIR."/app/views/$view.php")) {
-            include_once Application::$ROOT_DIR."/app/views/$view.php";
+        if(file_exists(Application::$ROOT_DIR."/app/views/pages/$view.php")) {
+            include_once Application::$ROOT_DIR."/app/views/pages/$view.php";
         }
         elseif (file_exists(Application::$ROOT_DIR."/app/views/authenticatedUser/$view.php")){
             include_once Application::$ROOT_DIR."/app/views/authenticatedUser/$view.php";
