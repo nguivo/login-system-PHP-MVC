@@ -4,16 +4,16 @@ namespace framework\app\models;
 
 use framework\core\db\DbModel;
 
-/*
- * confirmation codes emailed to clients will be stored in the database
- * for verification
- * */
-class ConfirmationModel extends DbModel
+class Role extends DbModel
 {
+    public int $id = 0;
+    public string $name = '';
+    public string $description = '';
+    public string $created_at = '';
 
     public function tableName(): string
     {
-        return 'confirmations';
+        return 'roles';
     }
 
     public function primaryKey(): string
@@ -23,12 +23,15 @@ class ConfirmationModel extends DbModel
 
     public function attributes(): array
     {
-        return ['user_id', 'operation', 'token', 'created_at'];
+        return ['name', 'description'];
     }
 
     public function labels(): array
     {
-        return [];
+        return [
+            'name' => 'Name',
+            'description' => 'Description',
+        ];
     }
 
     public function rules(): array
