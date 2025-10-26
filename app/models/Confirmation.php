@@ -10,6 +10,11 @@ use framework\core\db\DbModel;
  * */
 class Confirmation extends DbModel
 {
+    public int $user_id = 0;
+    public string $operation = '';
+    public string $token = '';
+    public string $created_at = '';
+
 
     public function tableName(): string
     {
@@ -28,7 +33,12 @@ class Confirmation extends DbModel
 
     public function labels(): array
     {
-        return [];
+        return [
+            'user_id' => 'User Id',
+            'operation' => 'Operation',
+            'token' => 'Token',
+            'created_at' => 'Created At',
+        ];
     }
 
     public function rules(): array
