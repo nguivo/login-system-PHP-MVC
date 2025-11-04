@@ -9,11 +9,6 @@ use framework\core\UserModel;
 
 class User extends UserModel
 {
-    public const STATUS_INACTIVE = 'inactive';
-    public const STATUS_ACTIVE = 'active';
-    public const STATUS_SUSPENDED = 'suspended';
-    public const STATUS_DELETED = 'deleted';
-
     public int $id;
     public string $first_name = '';
     public string $last_name = '';
@@ -85,11 +80,6 @@ class User extends UserModel
         /* Starting registration transaction */
         try {
             if($this->id = $this->save()) {
-
-                //TODO: Send confirmation email
-                //TODO: Update user's profile
-                //TODO: Log registration activity
-
                 return $this->id;
             }
         }

@@ -4,6 +4,7 @@ namespace framework\app\controllers;
 
 use framework\app\models\User;
 use framework\app\models\LoginForm;
+use framework\app\models\UserProfile;
 use framework\core\Application;
 use framework\core\Controller;
 use framework\core\middlewares\AuthMiddleware;
@@ -23,12 +24,24 @@ class AuthController extends Controller
     public function register(Request $request): string
     {
         $this->setLayout("main");
-        $user = new User();
+        $user = new  User();
 
         if($request->isPost()) {
             $user->loadData($request->getRequestBody());
             if($user->validate() && $user_id = $user->register()) {
+                // update user's profile
+                $userProfile = new UserProfile();
+                $userProfile->loadData($request->getRequestBody());
+                $userProfile->user_id = $user_id;
+                $userProfile->updateProfile();
+
+                // set a registered message
                 Application::$app->session->setFlash('success', "Successfully registered. Please check your email for activation.");
+
+                // Send user an email with confirmation code
+                $emailCtrl = new EmailController();
+                $emailCtrl->sendEmailVerificationMail($user_id);
+
                 return $this->render("/complete-registration", ['model' => $user, 'user_id' => $user_id]);
             }
 

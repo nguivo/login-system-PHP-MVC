@@ -6,7 +6,7 @@ use framework\core\db\DbModel;
 
 class UserProfile extends DbModel
 {
-    public int $user_id;
+    public int $user_id = 0;
     public string $first_name = '';
     public string $last_name = '';
     public int $image_id = 0;
@@ -51,5 +51,13 @@ class UserProfile extends DbModel
     public function rules(): array
     {
         return [];
+    }
+
+    public function updateProfile(): bool
+    {
+        if($this->save()) {
+            return true;
+        }
+        return false;
     }
 }
