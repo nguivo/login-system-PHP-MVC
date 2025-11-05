@@ -51,6 +51,7 @@ class Application
         self::$ROOT_DIR = $rootPath;
         self::$app = $this;
 
+
         $this->session = new Session();
         $this->request = new Request();
         $this->response = new Response();

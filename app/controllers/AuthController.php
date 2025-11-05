@@ -2,7 +2,7 @@
 
 namespace framework\app\controllers;
 
-use framework\app\models\User;
+use framework\app\models\RegistrationForm;
 use framework\app\models\LoginForm;
 use framework\app\models\UserProfile;
 use framework\core\Application;
@@ -24,12 +24,12 @@ class AuthController extends Controller
     public function register(Request $request): string
     {
         $this->setLayout("main");
-        $user = new  User();
+        $regUser = new  RegistrationForm();
 
         if($request->isPost()) {
-            $user->loadData($request->getRequestBody());
-            if($user->validate() && $user_id = $user->register()) {
-                // update user's profile
+            $regUser->loadData($request->getRequestBody());
+            if($regUser->validate() && $user_id = $regUser->register()) {
+                // register user
                 $userProfile = new UserProfile();
                 $userProfile->loadData($request->getRequestBody());
                 $userProfile->user_id = $user_id;
@@ -42,13 +42,13 @@ class AuthController extends Controller
                 $emailCtrl = new EmailController();
                 $emailCtrl->sendEmailVerificationMail($user_id);
 
-                return $this->render("/complete-registration", ['model' => $user, 'user_id' => $user_id]);
+                return $this->render("/complete-registration", ['model' => $regUser, 'user_id' => $user_id]);
             }
 
-            return $this->render("register", ['model' => $user]);
+            return $this->render("register", ['model' => $regUser]);
         }
 
-        return $this->render('register', ['model' => $user]);
+        return $this->render('register', ['model' => $regUser]);
     }
 
 

@@ -1,12 +1,11 @@
 <?php
 
-use framework\app\models\User;
-use framework\core\Application;
+use framework\app\models\RegistrationForm;
 use framework\core\forms\Form;
 use framework\core\View;
 
     /**@var $this View */
-    /**@var $model User */
+    /**@var $model RegistrationForm */
     $this->title = $name ?? "Sign Up";
 
     //TODO: get user's timezone using javascript
